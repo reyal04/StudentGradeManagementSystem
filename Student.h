@@ -2,9 +2,13 @@
 #define STUDENT_H
 
 #include <string>
-#include <map> // To store grades: e.g., <AssignmentName, Score>
+#include <map> 
 #include <iostream>
 
+/**
+* Student class represents a single student with a unique ID,
+* name, and a collection of grades for different assignments.
+*/
 class Student {
 private:
     int studentID;
@@ -20,7 +24,8 @@ public:
     // --- Getters (const methods) ---
     int getID() const;
     std::string getName() const;
-    const std::map<std::string, double>& getGrades() const;
+    // Use const reference to avoid copying the whole map when retrieving
+    const std::map<std::string, double>& getGrades() const; 
     
     // --- Core Functionality ---
     void addGrade(const std::string& assignment, double score);
