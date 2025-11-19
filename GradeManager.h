@@ -4,8 +4,13 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "Student.h" // Must include the class it manages
+#include "Student.h" 
 
+/**
+* GradeManager handles a collection of all Student objects
+* and provides functionality for adding, searching, calculating,
+* and managing student data.
+*/
 class GradeManager {
 private:
     // Stores all students in the system
@@ -21,7 +26,8 @@ public:
 
     // --- Student Management ---
     bool addStudent(int id, const std::string& name);
-    Student* getStudent(int id); // Returns pointer for modification
+    // Returns a pointer to the student for modification (e.g., adding grades)
+    Student* getStudent(int id); 
     bool recordGrade(int id, const std::string& assignment, double score);
     
     // --- Display & Calculation ---
