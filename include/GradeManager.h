@@ -13,14 +13,15 @@ private:
 public:
     GradeManager() = default;
 
-    // Student management
     void addStudent(const Student& student);
     bool recordGrade(int id, const std::string& assignment, double score);
     const Student* findStudentById(int id) const;
-
-    // Display
     void displayAllStudents() const;
     size_t getStudentCount() const;
+
+    // NEW: File I/O
+    bool saveToFile(const std::string& filename) const;
+    bool loadFromFile(const std::string& filename);
 };
 
 #endif // GRADEMANAGER_H
