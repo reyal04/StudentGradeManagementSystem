@@ -1,5 +1,5 @@
-cat > src/main.cpp <<'EOF'
 #include <iostream>
+#include <limits>
 #include <string>
 #include "../include/Student.h"
 #include "../include/GradeManager.h"
@@ -7,10 +7,11 @@ cat > src/main.cpp <<'EOF'
 int main() {
     GradeManager manager;
 
-    std::cout << "=== Student Grade Manager (Checkpoint 1: Add Student) ===\n";
+    std::cout << "=== Student Grade Manager (Checkpoint 1) ===\n";
 
     int id;
     std::string name;
+
     std::cout << "Enter student ID: ";
     while (!(std::cin >> id)) {
         std::cout << "Invalid input. Enter numeric ID: ";
@@ -25,10 +26,8 @@ int main() {
     Student s(id, name);
     manager.addStudent(s);
 
-    std::cout << "Student added successfully.\n";
-    std::cout << "Current students:\n";
+    std::cout << "\nStudent added!\n\nCurrent students:\n";
     manager.displayAllStudents();
 
     return 0;
 }
-EOF
