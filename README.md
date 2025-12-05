@@ -17,3 +17,14 @@ cd build
 cmake ..
 cmake --build .
 
+mkdir -p build
+cd build
+cmake ..
+cmake --build .
+
+# Run the program
+./StudentGradeManagementSystem
+
+# Run tests (if you wrote them manually and wired them to CMake)
+ctest --verbose
+
