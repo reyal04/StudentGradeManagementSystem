@@ -2,19 +2,25 @@
 #define GRADEMANAGER_H
 
 #include <vector>
+#include <string>
 #include "Student.h"
 
 class GradeManager {
 private:
     std::vector<Student> students;
+    int findStudentIndexById(int id) const;
 
 public:
     GradeManager() = default;
 
+    // Student management
     void addStudent(const Student& student);
-    void displayAllStudents() const;
+    bool recordGrade(int id, const std::string& assignment, double score);
+    const Student* findStudentById(int id) const;
 
-    bool isEmpty() const { return students.empty(); }
+    // Display
+    void displayAllStudents() const;
+    size_t getStudentCount() const;
 };
 
-#endif
+#endif // GRADEMANAGER_H
