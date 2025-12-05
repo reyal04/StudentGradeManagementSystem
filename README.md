@@ -8,6 +8,10 @@ A command-line program for adding students, recording grades, and calculating av
 - View individual student information (ID, name, average)
 - Calculate class average
 
+## AI Usage Statement
+I used ChatGPT only for general guidance and clarifying project requirements.
+I did not use AI to write code, debug code, or test the program. All implementation and coding decisions were performed by me.
+
 ## Building
 Create a build directory and compile using CMake:
 
@@ -28,7 +32,4 @@ cmake --build .
 # Run tests (if you wrote them manually and wired them to CMake)
 ctest --verbose
 
-AI Usage Statement
 
-I used ChatGPT only for general guidance and clarifying project requirements.
-I did not use AI to write code, debug code, or test the program. All implementation and coding decisions were performed by me.
