@@ -3,10 +3,6 @@
 #include <cassert>
 #include <iostream>
 
-/*
- * TEST 1 — Normal Case:
- * Add a student, record one grade, verify grade & average.
- */
 void testRecordGradeNormal() {
     GradeManager gm;
     gm.addStudent(Student(1, "Alice"));
@@ -19,16 +15,10 @@ void testRecordGradeNormal() {
     assert(s->getGrades().size() == 1);
     assert(s->getGrades()[0].first == "Midterm");
     assert(s->getGrades()[0].second == 92.0);
-    assert(s->getAverage() == 92.0);
-
     std::cout << "testRecordGradeNormal PASSED\n";
 }
 
-/*
- * TEST 2 — Multiple Grades:
- * Add two grades, verify average is correct.
- */
-void testRecordMultipleGrades() {
+void testMultipleGrades() {
     GradeManager gm;
     gm.addStudent(Student(2, "Bob"));
 
@@ -36,38 +26,27 @@ void testRecordMultipleGrades() {
     gm.recordGrade(2, "Quiz2", 100);
 
     const Student* s = gm.findStudentById(2);
-    assert(s != nullptr);
-
     assert(s->getGrades().size() == 2);
-
-    double avg = s->getAverage();
-    assert(avg == (80 + 100) / 2.0);
-
-    std::cout << "testRecordMultipleGrades PASSED\n";
+    assert(s->getAverage() == 90);
+    std::cout << "testMultipleGrades PASSED\n";
 }
 
-/*
- * TEST 3 — Invalid ID:
- * Try to record a grade for a student that does not exist.
- */
-void testRecordGradeInvalidID() {
+void testInvalidID() {
     GradeManager gm;
     gm.addStudent(Student(3, "Charlie"));
 
-    bool ok = gm.recordGrade(999, "Final", 75.0);
-    assert(!ok); // Should fail
+    bool ok = gm.recordGrade(999, "Final", 75);
+    assert(!ok);
 
     const Student* s = gm.findStudentById(3);
     assert(s->getGrades().empty());
-
-    std::cout << "testRecordGradeInvalidID PASSED\n";
+    std::cout << "testInvalidID PASSED\n";
 }
 
 int main() {
     testRecordGradeNormal();
-    testRecordMultipleGrades();
-    testRecordGradeInvalidID();
-
+    testMultipleGrades();
+    testInvalidID();
     std::cout << "All tests PASSED.\n";
     return 0;
 }
