@@ -57,3 +57,8 @@ Student Grade Management System — a command-line program in C++ to manage stud
 - Testing and debugging: 5 hours
 - Documentation and reflection: 2 hours
 
+## AI Usage Statement
+I used ChatGPT only for general guidance and clarifying project requirements.
+I did not use AI to write my whole code, debug code, or test the program, but I took help from ChatGPT i.e what is missing on my progress, what should I do next and how can my program will be stronger things. All implementation and coding decisions were performed by me.
+
+
