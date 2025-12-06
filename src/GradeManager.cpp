@@ -2,16 +2,14 @@
 #include <iostream>
 
 int GradeManager::findStudentIndexById(int id) const {
-    for (size_t i = 0; i < students.size(); ++i) {
-        if (students[i].getID() == id) return static_cast<int>(i);
-    }
+    for (int i = 0; i < students.size(); i++)
+        if (students[i].getID() == id) return i;
     return -1;
 }
 
 void GradeManager::addStudent(const Student& student) {
-    // Prevent duplicate IDs
     if (findStudentIndexById(student.getID()) != -1) {
-        std::cerr << "Error: Student with ID " << student.getID() << " already exists.\n";
+        std::cerr << "Student already exists.\n";
         return;
     }
     students.push_back(student);
@@ -32,10 +30,10 @@ const Student* GradeManager::findStudentById(int id) const {
 
 void GradeManager::displayAllStudents() const {
     if (students.empty()) {
-        std::cout << "No students available.\n";
+        std::cout << "No students added.\n";
         return;
     }
-    for (const auto &s : students) s.display();
+    for (auto &s : students) s.display();
 }
 
 size_t GradeManager::getStudentCount() const {
