@@ -1,9 +1,7 @@
 #include "../include/Student.h"
 #include <iostream>
-#include <numeric>
 
 Student::Student() : id(0), name("") {}
-
 Student::Student(int id, const std::string& name) : id(id), name(name) {}
 
 int Student::getID() const { return id; }
@@ -20,18 +18,11 @@ const std::vector<std::pair<std::string,double>>& Student::getGrades() const {
 double Student::getAverage() const {
     if (grades.empty()) return 0.0;
     double sum = 0.0;
-    for (const auto &p : grades) sum += p.second;
-    return sum / static_cast<double>(grades.size());
+    for (auto &p : grades) sum += p.second;
+    return sum / grades.size();
 }
 
 void Student::display() const {
-    std::cout << "ID: " << id << " | Name: " << name;
-    double avg = getAverage();
-    std::cout << " | Avg: " << avg << "\n";
-    if (!grades.empty()) {
-        std::cout << "  Grades:\n";
-        for (const auto &p : grades) {
-            std::cout << "    - " << p.first << ": " << p.second << "\n";
-        }
-    }
+    std::cout << "ID: " << id << ", Name: " << name
+              << ", Avg: " << getAverage() << "\n";
 }
